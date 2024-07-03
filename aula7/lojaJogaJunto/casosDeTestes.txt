@@ -1,0 +1,35 @@
+Objetivo: Validar o funcionamento da funcionalidade de verificação de frete grátis por região (Norte e Nordeste) no sistema da Loja do Joga Junto.
+
+Cenário: Usuário do site da Loja do Joga Junto informa seu CEP para verificar se o frete é grátis para sua região.
+
+Requisitos:
+
+O sistema deve validar o CEP informado.
+O sistema deve consultar o CEP na API do ViaCEP.
+O sistema deve verificar se o estado do CEP pertence às regiões Norte ou Nordeste.
+O sistema deve exibir uma mensagem informando se o frete é grátis ou não.
+
+Casos de Teste:
+
+ID  	Descrição	        Entrada          	Expectativa	            Resultado	           Observações
+1	CEP válido
+    - Região Norte	    CEP: 69800000	          Frete Grátis	         Aprovado	    O sistema deve identificar 
+                                                                                        o CEP pertencente à região Norte, exibindo a mensagem "Frete Grátis".
+2	CEP válido
+    - Região Nordeste	CEP: 41100000	          Frete Grátis	        Aprovado	    O sistema deve identificar o CEP 
+                                                                                        pertencente à região Nordeste, exibindo a mensagem "Frete Grátis".
+3	CEP válido 
+    - Outra região	    CEP: 35502087	    O CEP informado não         Aprovado        O sistema deve identificar o CEP 
+                                            tem direito à Frete Grátis.	                não pertencente à região 
+                                                                                        elegível, exibindo a mensagem "O CEP informado não tem direito à Frete Grátis.".                                 
+                                           	
+4	CEP inválido	    CEP: abc123	         Erro ao consultar o CEP.	Aprovado        O sistema apresenta erro.
+
+
+5	Erro na consulta
+ à API do ViaCEP	    CEP: 123456789	    Erro ao consultar o CEP.    Aprovado        O sistema apresenta erro.
+                                            	                                                                                                              
+
+6	CEP sem estado 
+na resposta da API  	CEP: 987654321	    Erro ao consultar o CEP.    Aprovado        O sistema apresenta erro.          
+                                            		   
