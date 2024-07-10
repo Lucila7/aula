@@ -1,0 +1,11 @@
+env/include
+env/Lib
+env/Scripts
+env/pyvenv.cfg
+persona/include
+persona/Lib
+persona/Scripts
+persona/pyvenv.cfg
+squad/include
+squad/Lib
+squad/Scripts
